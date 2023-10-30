@@ -4,6 +4,7 @@ def test():
     print("Testing 1 2 3.")
 
     add_cred('windows', 'paramsiddharth', 'lallupassword123')
+    # add_cred('Microsoft', 'Medha', 'password')
     remove_cred('windows')
     print(is_cred_present('windows'))
     save_creds()

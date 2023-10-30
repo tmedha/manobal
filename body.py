@@ -14,5 +14,5 @@ def is_cred_present(platform):
 
 def save_creds():
     credentials = "creds.manobal"
-    with open(credentials, 'w') as creds_json:
+    with open(credentials, 'a') as creds_json:
         json.dump(creds, creds_json)

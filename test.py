@@ -1,4 +1,4 @@
-from body import creds, add_cred, remove_cred, is_cred_present, save_creds
+from body import creds, add_cred, remove_cred, is_cred_present
 
 def test():
     print("Testing 1 2 3.")
@@ -7,7 +7,6 @@ def test():
     # add_cred('Microsoft', 'Medha', 'password')
     remove_cred('windows')
     print(is_cred_present('windows'))
-    save_creds()
 
 if __name__ == '__main__':
     test()

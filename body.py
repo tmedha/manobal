@@ -22,6 +22,7 @@ def save_creds():
         creds_json.write(encoded_creds)
 
 def load_creds():
-    with open(storage_file, 'r') as creds_antijson:
-        loading_creds = json.load(creds_antijson)
-        creds.update(loading_creds)
+    with open(storage_file, 'r', encoding = 'utf8') as loading_creds_json:
+        encoded_creds_json = loading_creds_json.read()
+        updated_creds = json.loads(encoded_creds_json)
+        creds.update(updated_creds)

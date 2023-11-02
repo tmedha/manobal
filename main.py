@@ -1,10 +1,11 @@
-from body import add_cred, remove_cred, load_creds, is_cred_present
+from body import add_cred, remove_cred, load_creds, is_cred_present, display_platforms
 def main():
     print("Manobal actually sucks ngl.")
     #Likho welcome to manobal
     print('Hello everyone!\nWelcome to Manobal, your neighbourhood password manager which locally encrypts your credentials.')
     #List dikhao platforms ka
     load_creds()
+    display_platforms()
     #Karna kya hai user (Add/Edit/Update, View, Delete)
     print('Choose what operation you would like to perform:\n')
     print('Press:\n1. For Adding/Updating a Credential.\n')
@@ -30,7 +31,8 @@ def main():
             print('Credential not found.')
 
     elif choice == '3':
-        print(creds)
+        # print(creds)
+        ...
 
     elif choice == '4':
         ...

@@ -26,3 +26,6 @@ def load_creds():
         encoded_creds_json = loading_creds_json.read()
         updated_creds = json.loads(encoded_creds_json)
         creds.update(updated_creds)
+
+def display_platforms():
+    ...

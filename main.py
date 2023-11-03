@@ -31,8 +31,7 @@ def main():
             print('Credential not found.')
 
     elif choice == '3':
-        # print(creds)
-        ...
+        display_platforms()
 
     elif choice == '4':
         ...

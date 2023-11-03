@@ -31,6 +31,7 @@ def main():
             print('Credential not found.')
 
     elif choice == '3':
+        print('The existing platforms are: ')
         display_platforms()
 
     elif choice == '4':

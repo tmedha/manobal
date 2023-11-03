@@ -28,4 +28,5 @@ def load_creds():
         creds.update(updated_creds)
 
 def display_platforms():
-    ...
+    platforms = creds.keys()
+    print(platforms)

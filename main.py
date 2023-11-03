@@ -11,7 +11,7 @@ def main():
     print('Press:\n1. For Adding/Updating a Credential.\n')
     print('2. For Deleting an Existing Credential.\n')
     print('3. For Viewing Existing Credentials.\n')
-    print('4. Exit.')
+    print('4. Exit.\n')
     #User se number input karna hai
     choice = input("Enter your choice: ")
 

@@ -6,4 +6,4 @@ To run the tests, execute this:
 ```shell
 python test.py
 ```
-# Made with hate and feeling of revenge by Medha <3
+# Made with hate and vengefulness by Medha <3

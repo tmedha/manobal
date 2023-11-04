@@ -29,5 +29,5 @@ def load_creds():
 
 def display_platforms():
     platforms = list(creds.keys())
-    for list_platforma in platforms:
-        print(list_platforma)
+    for list_platforms in platforms:
+        print(list_platforms)

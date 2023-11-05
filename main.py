@@ -26,6 +26,7 @@ def main():
         platform_delete = input('Enter platform that you want to delete: ')
         if is_cred_present(platform_delete):
             remove_cred(platform_delete)
+            print('Platform and linked credentials deleted.')
             # save_creds()
         else:
             print('Credential not found.')

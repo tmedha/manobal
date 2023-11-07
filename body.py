@@ -33,3 +33,6 @@ def display_platforms():
 
     for list_platforms in platforms:
         print('•',list_platforms)
+
+def view_credentials(platform):
+    print(creds[platform])

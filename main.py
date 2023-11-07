@@ -32,10 +32,12 @@ def main():
             print('Credential not found.')
 
     elif choice == '3':
-        view_choice = input('Enter platform credentials do you want to view: ')
+        view_choice = input('Enter platform you want to view (Enter All for viewing all): ')
         if is_cred_present(view_choice):
             print('Platform: ', view_choice)
             view_credentials(view_choice)
+        elif view_choice == 'All':
+            print()
         else:
             print('Invalid credential.')
 

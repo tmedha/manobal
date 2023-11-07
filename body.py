@@ -37,6 +37,6 @@ def display_platforms():
 def view_credentials(platform):
     print(creds[platform])
 
-def view_all_credentials(platform):
+def view_all_credentials():
     for platform in creds:
         print(creds[platform])

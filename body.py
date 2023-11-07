@@ -39,4 +39,4 @@ def view_credentials(platform):
 
 def view_all_credentials():
     for platform in creds:
-        print(creds[platform])
+        print('Platform: ', platform,'\n', creds[platform])

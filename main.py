@@ -37,7 +37,7 @@ def main():
             print('Platform: ', view_choice)
             view_credentials(view_choice)
         elif view_choice == 'All':
-            print(view_all_credentials())
+            view_all_credentials()
         else:
             print('Invalid credential.')
 

@@ -8,6 +8,7 @@ def main():
         print('=====================================================================================================')
         load_creds()
         display_platforms()
+        print('=====================================================================================================')
         #Karna kya hai user (Add/Edit/Update, View, Delete)
         print('Choose what operation you would like to perform:')
         print('Press:\n1. For Adding/Updating a Credential.')

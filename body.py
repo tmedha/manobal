@@ -38,6 +38,7 @@ def view_credentials(platform):
     if is_cred_present(platform):
         view_username = creds[platform]['username']
         view_password = creds[platform]['password']
+        print(f'Platform: {platform}')
         print(f'Username: {view_username}')
         print(f'Password: {view_password}')
     else:

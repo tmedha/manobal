@@ -40,7 +40,7 @@ def main():
             elif view_choice == 'All' or 'all' or 'A' or 'a':
                 view_all_credentials(view_choice)
             else:
-                print('Invalid credential.')
+                print('Credential not found.')
 
 
         elif choice == '4':

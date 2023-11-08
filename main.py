@@ -5,7 +5,7 @@ def main():
     print('Hello everyone!\nWelcome to Manobal, your neighbourhood password manager which locally encrypts your credentials.')
     #List dikhao platforms ka
     while True:
-        print('')
+        print('=====================================================================================================')
         load_creds()
         display_platforms()
         #Karna kya hai user (Add/Edit/Update, View, Delete)

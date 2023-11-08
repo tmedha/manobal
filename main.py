@@ -1,4 +1,4 @@
-from body import add_cred, remove_cred, load_creds, is_cred_present, display_platforms, view_credentials, view_all_credentials
+from body import add_cred, remove_cred, load_creds, is_cred_present, display_platforms, view_credentials#, view_all_credentials
 def main():
     print("Manobal actually sucks ngl.")
     #Likho welcome to manobal
@@ -32,12 +32,9 @@ def main():
             print('Credential not found.')
 
     elif choice == '3':
-        view_choice = input('Enter platform you want to view (Enter All for viewing all): ')
+        view_choice = input('Enter platform to view (enter All for viewing all): ')
         if is_cred_present(view_choice):
-            print('Platform: ', view_choice)
             view_credentials(view_choice)
-        elif view_choice == 'All':
-            view_all_credentials()
         else:
             print('Invalid credential.')
 

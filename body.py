@@ -43,6 +43,9 @@ def view_credentials(platform):
     else:
         print('Platform {platform} not found.')
 
-def view_all_credentials():
+def view_all_credentials(platform):
     for platform in creds:
-        print('Platform: ', platform,'\n', creds[platform])
+        view_username = creds[platform]['username']
+        view_password = creds[platform]['password']
+        print(f'Username: {view_username}')
+        print(f'Password: {view_password}')

@@ -37,7 +37,7 @@ def main():
             view_choice = input('Enter platform to view (enter A/All for viewing all): ')
             if is_cred_present(view_choice):
                 view_credentials(view_choice)
-            elif view_choice == 'All' or 'all' or 'A' or 'a':
+            elif view_choice == 'All' or view_choice == 'all' or view_choice == 'A' or view_choice == 'a':
                 view_all_credentials(view_choice)
             else:
                 print('Credential not found.')

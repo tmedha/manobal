@@ -52,3 +52,9 @@ def view_all_credentials(platform):
         print(f'  Username: {view_username}')
         print(f'  Password: {view_password}')
         print('')
+
+def encrypt_creds(string, key):
+    ...
+
+def decrypt_creds(string, key):
+    ...

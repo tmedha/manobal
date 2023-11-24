@@ -1,5 +1,5 @@
 import json
-from cryptography import Fernet
+from cryptography.fernet import Fernet
 
 creds = {}
 
@@ -54,28 +54,20 @@ def view_all_credentials(platform):
         print(f'  Password: {view_password}')
         print('')
 
-def encrypt_creds(string, key):
-    key = Fernet.generate_key()
-    encryption_key = Fernet(key)
-    encrypted_creds = {}
+def encrypt_creds(creds, key):
+    f = Fernet(key)
+    encrypted_credentials = {}
     for platform, values in creds.items():
         username = values['username'].encode('utf-8')
         password = values['password'].encode('utf-8')
-        encrypted_username = encryption_key.encrypt(username)
-        encrypted_password = encryption_key.encrypt(password)
-        encrypted_creds[platform] = {
+        encrypted_username = f.encrypt(username)
+        encrypted_password = f.encrypt(password)
+        encrypted_credentials[platform] = {
             'username': encrypted_username,
             'password': encrypted_password
         }
-        with open('key.manobal', 'wb') as important_key:
-            important_key.write(key)
-
-        with open('encrypted_credentials.manobal', 'w') as encrypted_creds_file:
-            json.dump(encrypted_creds, encrypted_creds_file)
+        return encrypted_credentials
 
 
 def decrypt_creds(string, key):
-    with open('key.manobal', 'rb') as important_key:
-        key = important_key.read()
-    with open('encrypted_credentials.json', 'r') as credentials_file:
-        encrypted_credentials = json.load(credentials_file)
+    ...

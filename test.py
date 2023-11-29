@@ -17,8 +17,8 @@ def test():
     key = Fernet.generate_key()
     encrypted = encrypt_creds(string_creds, key)
     print(encrypted)
-    # decrypted = decrypt_creds(encrypted, key)
-    # print(decrypted)
+    decrypted = decrypt_creds(encrypted, key)
+    print(decrypted)
 
 if __name__ == '__main__':
     test()

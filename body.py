@@ -56,11 +56,13 @@ def view_all_credentials(platform):
         print(f'  Password: {view_password}')
         print('')
 
-def encrypt_creds(string_creds, key):
+def encrypt_creds(string, key):
     key_object = Fernet(key)
-    encrypted_creds = key_object.encrypt(message.encode())
-    return encrypted_creds
+    encrypted_credentials = key_object.encrypt(string.encode())
+    return encrypted_credentials
 
 
 def decrypt_creds(encrypted_credentials, key):
-    ...
+    key_object = Fernet(key)
+    decrypted_creds = key_object.decrypt(encrypted_credentials).decode()
+    return decrypted_creds

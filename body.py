@@ -5,6 +5,8 @@ creds = {}
 
 storage_file = 'creds.manobal'
 
+key = Fernet.generate_key()
+
 def add_cred(platform, username, password):
     creds[platform] = {"username": username, "password": password}
     save_creds()
@@ -54,20 +56,11 @@ def view_all_credentials(platform):
         print(f'  Password: {view_password}')
         print('')
 
-def encrypt_creds(creds, key):
-    f = Fernet(key)
-    encrypted_credentials = {}
-    for platform, values in creds.items():
-        username = values['username'].encode('utf-8')
-        password = values['password'].encode('utf-8')
-        encrypted_username = f.encrypt(username)
-        encrypted_password = f.encrypt(password)
-        encrypted_credentials[platform] = {
-            'username': encrypted_username,
-            'password': encrypted_password
-        }
-        return encrypted_credentials
+def encrypt_creds(string_creds, key):
+    key_object = Fernet(key)
+    encrypted_creds = key_object.encrypt(message.encode())
+    return encrypted_creds
 
 
-def decrypt_creds(string, key):
+def decrypt_creds(encrypted_credentials, key):
     ...

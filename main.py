@@ -1,4 +1,4 @@
-from body import add_cred, remove_cred, load_creds, is_cred_present, display_platforms, view_credentials, view_all_credentials
+from body import add_cred, remove_cred, load_creds, is_cred_present, display_platforms, view_credentials, view_all_credentials, encrypt_creds, decrypt_creds
 def main():
     print("Manobal actually sucks ngl.")
     #Likho welcome to manobal

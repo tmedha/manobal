@@ -51,6 +51,9 @@ def view_all_credentials(platform):
     for platform in creds:
         view_username = creds[platform]['username']
         view_password = creds[platform]['password']
+        platform = encrypt_creds(platform, key)
+        view_username = encrypt_creds(view_username, key)
+        view_password = encrypt_creds(view_password, key)
         print(f'• Platform: {platform}')
         print(f'  Username: {view_username}')
         print(f'  Password: {view_password}')

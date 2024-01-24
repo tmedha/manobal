@@ -13,12 +13,12 @@ def test():
     # print(is_cred_present('windows'))
     # pp(creds)
     #aes ka prayog kuchh fernet and cyrptography library falana dh
-    string_creds = 'Hello'
-    key = Fernet.generate_key()
-    encrypted = encrypt_creds(string_creds, key)
-    print(encrypted)
-    decrypted = decrypt_creds(encrypted, key)
-    print(decrypted)
+    # string_creds = 'Hello'
+    # key = Fernet.generate_key()
+    # encrypted = encrypt_creds(string_creds, key)
+    # print(encrypted)
+    # decrypted = decrypt_creds(encrypted, key)
+    # print(decrypted)
 
 if __name__ == '__main__':
     test()

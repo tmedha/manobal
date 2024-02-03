@@ -1,6 +1,12 @@
 # Manobal
 A password manager which locally encrypts your credentials.
 
+## Execution
+To run the project, execute this:
+```shell
+python main.py
+```
+
 ## Testing
 To run the tests, execute this:
 ```shell

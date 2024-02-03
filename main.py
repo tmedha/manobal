@@ -1,4 +1,4 @@
-from body import add_cred, remove_cred, load_creds, is_cred_present, display_platforms, view_credentials, view_all_credentials, string_to_key
+from body import add_cred, remove_cred, load_creds, is_cred_present, display_platforms, view_credentials, view_all_credentials, string_to_key, ensure_creds
 
 def main():
     print("Manobal actually sucks ngl.")
@@ -11,6 +11,7 @@ def main():
     attempts = 3
     while attempts>0:
         try:
+            ensure_creds(key_password)
             load_creds(key_password)
         except:
             attempts-= 1

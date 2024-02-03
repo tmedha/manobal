@@ -1,5 +1,7 @@
-# Manobal
+# Manobal 🔐
 A password manager which locally encrypts your credentials.
+
+![Demonstration of Manobal](demo.gif)
 
 ## Execution
 To run the project, execute this:

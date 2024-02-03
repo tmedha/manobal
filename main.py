@@ -1,12 +1,27 @@
-from body import add_cred, remove_cred, load_creds, is_cred_present, display_platforms, view_credentials, view_all_credentials, encrypt_creds, decrypt_creds
+from body import add_cred, remove_cred, load_creds, is_cred_present, display_platforms, view_credentials, view_all_credentials, string_to_key
+
 def main():
     print("Manobal actually sucks ngl.")
     #Likho welcome to manobal
     print('Hello everyone!\nWelcome to Manobal, your neighbourhood password manager which locally encrypts your credentials.')
     #List dikhao platforms ka
-    while True:
+    #User se lo password
+    password = input("Enter master password: ")
+    key_password = string_to_key(password)
+    attempts = 3
+    while attempts>0:
+        try:
+            load_creds(key_password)
+        except:
+            attempts-= 1
+            if attempts == 0:
+                print("No attempts left. Try again later.")
+            else:
+                print("Wrong password! Try again.")
+                password = input("Enter master password: ")
+                key_password = string_to_key(password)
+            continue
         print('=====================================================================================================')
-        load_creds()
         display_platforms()
         print('=====================================================================================================')
         #Karna kya hai user (Add/Edit/Update, View, Delete)
@@ -22,13 +37,13 @@ def main():
             platform = input("Enter the platform for which you have credentials: ")
             username = input("Enter your username: ")
             password = input("Enter your password: ")
-            add_cred(platform, username, password)
+            add_cred(platform, username, password, key_password)
             # save_creds()
 
         elif choice == '2':
             platform_delete = input('Enter platform that you want to delete: ')
             if is_cred_present(platform_delete):
-                remove_cred(platform_delete)
+                remove_cred(platform_delete, key_password)
                 print('Platform and linked credentials deleted.')
                 # save_creds()
             else:

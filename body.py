@@ -1,34 +1,48 @@
 import json
 from cryptography.fernet import Fernet
+import base64
+import os
+# from cryptography.hazmat.primitives import hashes
+# from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+import hashlib
 
 creds = {}
 
 storage_file = 'creds.manobal'
 
-key = Fernet.generate_key()
+# key = Fernet.generate_key()
 
-def add_cred(platform, username, password):
+def add_cred(platform, username, password, key_byte):
     creds[platform] = {"username": username, "password": password}
-    save_creds()
+    save_creds(key_byte)
 
-def remove_cred(platform) :
+def remove_cred(platform, key_byte) :
     del creds[platform]
     # creds.pop(platform)
-    save_creds()
+    save_creds(key_byte)
 
 def is_cred_present(platform):
     return platform in creds
 
-def save_creds():
+def save_creds(key_byte):
     encoded_creds = json.dumps(creds)
+    encrypted_creds = encrypt_creds(encoded_creds, key_byte)
     with open(storage_file, 'w', encoding = 'utf8') as creds_json:
-        creds_json.write(encoded_creds)
+        creds_json.write(encrypted_creds)
 
-def load_creds():
+def load_creds(key_byte):
     with open(storage_file, 'r', encoding = 'utf8') as loading_creds_json:
-        encoded_creds_json = loading_creds_json.read()
-        updated_creds = json.loads(encoded_creds_json)
+        encrypted_creds_json = loading_creds_json.read()
+        decrypted_creds = decrypt_creds(encrypted_creds_json, key_byte)
+        updated_creds = json.loads(decrypted_creds)
         creds.update(updated_creds)
+
+def ensure_creds(key_byte):
+    if not os.path.isfile(storage_file):
+        encoded_creds = json.dumps({})
+        encrypted_creds = encrypt_creds(encoded_creds, key_byte)
+        with open(storage_file, 'w', encoding = 'utf8') as creds_json:
+            creds_json.write(encrypted_creds)
 
 def display_platforms():
     print('Platforms: ')
@@ -56,13 +70,28 @@ def view_all_credentials(platform):
         print(f'  Password: {view_password}')
         print('')
 
-def encrypt_creds(string, key):
-    key_object = Fernet(key)
-    encrypted_credentials = key_object.encrypt(string.encode())
+def encrypt_creds(string, key_byte):
+    key_object = Fernet(key_byte)
+    encrypted_credentials = key_object.encrypt(string.encode()).decode()
     return encrypted_credentials
 
 
-def decrypt_creds(encrypted_credentials, key):
-    key_object = Fernet(key)
-    decrypted_creds = key_object.decrypt(encrypted_credentials).decode()
+def decrypt_creds(encrypted_credentials, key_byte):
+    key_object = Fernet(key_byte)
+    decrypted_creds = key_object.decrypt(encrypted_credentials.encode()).decode()
     return decrypted_creds
+
+def string_to_key(key_string):
+    key_byte = key_string.encode('utf-8')
+    # salt = os.urandom(16)
+    # kdf = PBKDF2HMAC(
+    #     algorithm=hashes.SHA256(),
+    #     length=32,
+    #     salt=salt,
+    #     iterations=390000,
+    # )
+    # key = base64.urlsafe_b64encode(kdf.derive(key_byte))
+    hlib = hashlib.md5()
+    hlib.update(key_byte)
+    return base64.urlsafe_b64encode(hlib.hexdigest().encode('latin-1'))
+    # return key

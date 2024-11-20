@@ -9,6 +9,11 @@ To run the project, execute this:
 python main.py
 ```
 
+To run the project using Docker, execute this:
+```shell
+docker run -t -i --rm -v ~/.manobal:/app tmedha/manobal
+```
+
 ## Testing
 To run the tests, execute this:
 ```shell
